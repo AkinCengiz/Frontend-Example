@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0 auto;
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .color-box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid silver;
+        }
+        .m-10{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <input type="text" id="text-left" class="m-10"><button id="btn-left" class="m-10">Color Change</button>
+            <div id="div-left" class="color-box m-10"></div>
+        </div>
+        <div class="box">
+            <input type="text" id="text-center" class="m-10"><button id="btn-center" class="m-10">Color Change</button>
+            <div id="div-center" class="color-box m-10"></div>
+        </div>
+        <div class="box">
+            <input type="text" id="text-right" class="m-10"><button id="btn-right" class="m-10">Color Change</button>
+            <div id="div-right" class="color-box m-10"></div>
+        </div>
+    </div>
+
+    <script>
+        function changeColor(inputId,divId){
+            const color = document.getElementById(inputId).value;
+            document.getElementById(divId).style.backgroundColor = color;
+        }
+        document.getElementById("btn-left").addEventListener("click",function(){changeColor("text-left","div-left");});
+        document.getElementById("btn-center").addEventListener("click",function(){changeColor("text-center","div-center");});
+        document.getElementById("btn-right").addEventListener("click",function(){changeColor("text-right","div-right");});
+    </script>
+</body>
+</html>

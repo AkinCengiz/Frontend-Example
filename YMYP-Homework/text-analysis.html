@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: large;
+        }
+        .container{
+            width: 80%;
+            display: flex;
+            justify-content: start;
+        }
+        .input-box{
+            width: 45%;
+            display: flex;
+            justify-content: space-between;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-box">
+            <label>Metin Giriniz</label>
+            <input type="text" style="width: 500px;" id="content">
+        </div>
+        <div class="input-box">
+            <button onclick="analysis()">Analiz Et</button>
+        </div>
+    </div>
+    <div class="analysis-box"></div>
+
+
+    <script>
+        function analysis(){
+            const inputElement = document.getElementById("content");
+            let textContent = inputElement.value;
+            let sentence = 0;
+            let spaceCount = 0;
+            let word = 0;
+            let character = 0;
+            for(let i = 0; i < textContent.length; i++){
+                if(textContent[i] != " "){
+                    character++;
+                }
+                if(textContent[i] == "."){
+                    sentence++;
+                }
+                if(textContent[i] == " "){
+                    spaceCount++;
+                }
+            }
+            
+            word = spaceCount + 1;
+            const ulElement = document.createElement("ul");
+            const liCharacter = document.createElement("li");
+            liCharacter.innerHTML = "Karakter sayısı : " + character
+            ulElement.appendChild(liCharacter);
+
+            const liWord = document.createElement("li");
+            liWord.innerHTML = "Kelime sayısı : " + word
+            ulElement.appendChild(liWord);
+
+            const liSentence = document.createElement("li");
+            liSentence.innerHTML = "Cümle sayısı : " + sentence;
+            ulElement.appendChild(liSentence);
+            document.querySelector(".analysis-box").appendChild(ulElement);
+        }
+    </script>
+</body>
+</html>

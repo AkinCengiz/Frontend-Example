@@ -1,0 +1,165 @@
+html,body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+body{
+    background-color: #F1F1F1;
+}
+.container{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+.container-fluid{
+    width: 100%;
+}
+.align-center{
+    align-items: center;
+}
+.dflex{
+    display: flex;
+}
+.justify-space-between{
+    justify-content: space-between;
+}
+.justify-center{
+    justify-content: center;
+}
+.col-3{
+    width: 25%;
+}
+.col-9{
+    width: 75%;
+}
+.col-35{
+    width: 35%;
+}
+.col-65{
+    width: 65%;
+}
+.dflex-column{
+    display: flex;
+    flex-direction: column;
+}
+.w-100{
+    width: 100%;
+}
+.m-0{
+    margin: 0;
+}
+.m-5{
+    margin: 5px;
+}
+.m-10{
+    margin: 10px;
+}
+.m-15{
+    margin: 15px;
+}
+.mx-5{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.mx-10{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.mt-15{
+    margin-top: 15px;
+}
+.mb-15{
+    margin-bottom: 15px;
+}
+.m-20{
+    margin: 20px;
+}
+.p-5{
+    padding: 5px;
+}
+.p-10{
+    padding: 10px;
+}
+.p-15{
+    padding: 15px;
+}
+.p-20{
+    padding: 20px;
+}
+.pt-10{
+    padding-top: 10px;
+}
+.px-20{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.p-0{
+    padding: 0;
+}
+.absolute{
+    position: absolute;
+}
+.relative{
+    position: relative;
+}
+.card{
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.bottom-10{
+    bottom: 10px;
+}
+.left-10{
+    left: 10px;
+}
+
+.color-primary{
+    color: #009688;
+}
+.color-secondary{
+    color: #757575;
+}
+.color-white{
+    color: white;
+}
+.contact span{
+    font-size: .8rem;
+}
+.range-bar{
+    background-color: #009688;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    font-size: 0.7rem;
+}
+.range-bar-base{
+    background-color: #ccc;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    font-size: 0.7rem;
+}
+.fs-8{
+    font-size: .8rem;
+}
+.fs-10{
+    font-size: 1rem;
+}
+.fs-15{
+    font-size: 1.5rem;
+}
+.fs-20{
+    font-size: 2rem;
+}
+.bg-primary{
+    background-color: #009688;
+}
+.bg-secondary{
+    background-color: #757575;
+}
+.radius-5{
+    border-radius: 5px;
+}
+.radius-15{
+    border-radius: 15px;
+}
