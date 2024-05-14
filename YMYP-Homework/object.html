@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        #table-head{
+            background-color: #2f2f2f;
+            color: #f0f0f0;
+        }
+        
+        tr:nth-child(even){
+            background-color: #8f8f8f;
+            color: #f0f0f0;
+        }
+        tr:nth-child(odd){
+            background-color: #f0f0f0;
+            color: #2f2f2f;
+        }
+        .form-group{
+            display: flex;
+            width: 400px;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 10px;
+        }
+        .leftDiv{
+            width: 300px;
+            padding: 10px;
+        }
+        input{
+            width: 100%;
+            padding: 10px;}
+        .rightDiv{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body onload="getEmployees()">
+    <table>
+        <thead>
+            <tr id="table-head">
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Şehir</th>
+                <th>Doğum Tarihi</th>
+                <th>Maaş</th>
+                <th>Departman</th>
+            </tr>
+        </thead>
+        <tbody id="employee">
+
+        </tbody>
+    </table>
+    <hr>
+    <button id="open-form" onclick="openAddForm()">Ekle</button>
+    <script>
+        const employees = [
+            {
+                name:"Akın",
+                surname : "CENGİZ",
+                city:"İstanbul",
+                birthDay:"1981-08-24",
+                salary:5000,
+                department:"IT",
+            },
+            {
+                name:"Mehmet",
+                surname : "BAKIR",
+                city:"Ankara",
+                birthDay:"1985-05-24",
+                salary:4000,
+                department:"Fen İşleri"
+            }
+        ]
+
+        function getEmployees(){
+            const employeeTable = document.getElementById("employee");
+            employeeTable.innerHTML = "";
+            employees.forEach(e => {
+                const rowElement = document.createElement("tr");
+                rowElement.appendChild(document.createElement("td")).innerText = e.name;
+                rowElement.appendChild(document.createElement("td")).innerText = e.surname;
+                rowElement.appendChild(document.createElement("td")).innerText = e.city;
+                rowElement.appendChild(document.createElement("td")).innerText = e.birthDay;
+                rowElement.appendChild(document.createElement("td")).innerText = e.salary;
+                rowElement.appendChild(document.createElement("td")).innerText = e.department;
+                employeeTable.appendChild(rowElement);
+            });
+        }
+        function openAddForm(){
+            document.getElementById("open-form").style.display = "none";
+            const form = document.createElement("form");
+            form.setAttribute("id","addForm");
+            const textList = ["Ad","Soyad","Sehir","Dogum-Tarihi","Maas","Departman"];
+            for(let i = 0; i < 6; i++){
+                const formGroup = document.createElement("div")
+                formGroup.classList.add("form-group");
+                const leftDiv = document.createElement("div")
+                leftDiv.classList.add("col-md-4");
+                const rightDiv = document.createElement("div")
+                rightDiv.classList.add("col-md-8");
+                leftDiv.appendChild(document.createElement("label")).innerHTML = textList[i];
+                const input = document.createElement("input");
+                input.setAttribute("type","text");
+                input.setAttribute("id",textList[i].toLowerCase());
+                rightDiv.appendChild(input);
+                formGroup.appendChild(leftDiv);
+                formGroup.appendChild(rightDiv);
+                form.appendChild(formGroup);
+            }
+            const button = document.createElement("button")
+            button.innerText = "Ekle";
+            button.setAttribute("id","addEmployee");
+            button.addEventListener("click",AddEmployee);
+            button.setAttribute("type","button");
+            form.appendChild(button);
+            document.body.appendChild(form);
+        }
+        function AddEmployee(){
+            const employee = {
+                name:document.getElementById("ad").value,
+                surname:document.getElementById("soyad").value,
+                city:document.getElementById("sehir").value,
+                birthDay:document.getElementById("dogum-tarihi").value,
+                salary:document.getElementById("maas").value,
+                department:document.getElementById("departman").value
+            }
+            employees.push(employee);
+            document.getElementById("addForm").remove();
+            document.getElementById("open-form").style.display = "block";
+            getEmployees();
+        }
+    </script>
+</body>
+</html>
